@@ -52,6 +52,7 @@ class Pokemon:
         else:
             print("Cannot use revive on " + self.name + ".")
 
+
     # Method for attacking a Pokemon, includes experience and levelling system with if loops.
     def attack(self, victim):
 

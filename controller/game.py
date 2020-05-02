@@ -1,3 +1,7 @@
+import sys 
+
+sys.path.insert(1, '../model')
+
 import trainer as trainermod
 
 class Game:
@@ -14,7 +18,7 @@ class Game:
             run = True
             while run == True:
                 #initialise game introdution
-                print("Professor: Hello and welcome to the world of pokemon, I am the mandatory Proffesor! What is your name?")
+                print("Professor: Hello and welcome to the world of pokemon, I am the mandatory Professor! What is your name?")
                 name = input()
                 # Get player to choose their starting Pokemon. Then instatiate a trainer object for the player and 'Proffesor'
                 print("Professor: " + name + "! Great name! I have three pokemon for you to choose from. Type 'a' for a Charmander, 'b' for a Squirtle or 'c' for a Bulbasaur!")

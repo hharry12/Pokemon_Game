@@ -1,6 +1,8 @@
 # Pokemon_Game
 The aim of this project is to create a GUI game clone of pokemon. 
 
-We shall be using an MVC design pattern for the user interface.
+Master branch is only the initial commit
 
-Also this README file will be better once I know what I'm doing
+Current version of game is basic text based short game. To play use the mcvStructure branch and run the game.py file. Enter inputs using command line
+
+Current work is being done to turn current text based game to be a GUI game.

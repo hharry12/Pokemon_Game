@@ -15,15 +15,16 @@ class Pokemon:
 
         # Take away health
         if (self.current_health - damage) > 0:
-            print(self.name + " lost " + str(damage) + " health!")
             self.current_health -= damage
+            return self.name + " loses " + str(damage) + " health. "
         
         # Edge case where Pokemon runs out of health
         else:
-            print("Oh no! " + self.name + " fainted!")
             self.current_health = 0
             self.knocked_out = True
 
+            return self.name + " fainted! "
+            
     
 
     # Method for regaining health
@@ -31,17 +32,19 @@ class Pokemon:
 
         # Add health
         if (self.current_health + health) < self.maximum_health:
-            print(self.name + " gains " + str(health) + " health!")
             self.current_health += health
+            return self.name + " gains " + str(health) + " health !"
+            
 
         # Edge case where pokemon already has full health
         elif self.current_health == self.maximum_health:
-            print(self.name + " is already at full health.")
+            return self.name + " is already at full health. "
 
         # Edge case where pokemon regains full health
         else:
-            print(self.name + " is back to full health!")
             self.current_health = self.maximum_health
+            return self.name + " is back to full health! "
+            
         
     # Method for reviving a Pokemon
     def revive(self):
@@ -59,29 +62,30 @@ class Pokemon:
         if self.knocked_out == False:
 
             # Determine type difference - atm only works for fire grass and water
-            print(self.name + " attacks " + victim.name + ".")
             if (self.type == "water" and victim.type == "fire") or (self.type == "fire" and victim.type == "grass") or (self.type == "grass" and victim.type == "water"):
              multiplier = 2
             else:
              multiplier = 0.5 
             damage = self.level*multiplier
             #call lose_health method
-            victim.lose_health(damage)
-
-            # If attacked pokemon is knowxked out, we need to gain xp.
+            result = self.name + " attacks " + victim.name + ". " 
+            result += victim.lose_health(damage) 
+            # If attacked pokemon is knocked out, we need to gain xp UNREACHABLE ATM NEED TO UPDATE.
             if victim.knocked_out == True:
                 if self.level == 100:
-                    print(self.name + " has reached max level 100 and cannot gain experience points.")
+                    result += self.name + " has reached max level 100 and cannot gain experience points."
                 else:
                     xp = victim.level*5
-                    print(self.name + " gained " + str(xp) + " experience points!")
+                    result += self.name + " gained " + str(xp) + " experience points! "
 
                     # If pokemon gains enough xp it needs to level up
                     if self.remaining_xp <= xp:
                         self.level += 1
                         self.remaining_xp = self.level*50
-                        print(self.name + " levelled up to level " + str(self.level) + "!")
+                        result = self.name + " levelled up to level " + str(self.level) + "!"
                     else:
                         self.remaining_xp -= xp
+            return result
+        # This will not print to GUI                
         else:
-            print(self.name + " is knocked out, it cannot attack.")
+            return self.name + " is knocked out, it cannot attack."

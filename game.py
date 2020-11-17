@@ -1,9 +1,13 @@
 import sys 
-
-sys.path.insert(1, '../model')
+import os
+'''cwd = os.getcwd()  # Get the current working directory (cwd)
+files = os.listdir(cwd)  # Get all the files in that directory
+print("Files in %r: %s" % (cwd, files))
+sys.path.insert(1, '../model')'''
 
 from tkinter import *
 import GUI
+
 
 
 class Game:

@@ -53,67 +53,41 @@ class Window(Canvas):
 
     def labels_func(self, create, destroy):
         
-        if destroy == 0:
-            pass
-        elif destroy == 1:
-            self.label1.destroy()
+        if destroy >= 0:
 
-        elif destroy == 2:
-            self.label1.destroy()
-            self.label2.destroy()
+            if destroy >= 1:
+                self.label1.destroy()
+
+                if destroy >= 2:
+                    self.label2.destroy()
 
 
-        if create == 1:
+        if create >= 1:
             image_name1 = self.labelim1.get()
             label_image1 = Image.open(image_name1)
             self.label_photo1 = ImageTk.PhotoImage(label_image1)
             
             self.label1 = Label(self.master, textvariable = self.text1, image = self.label_photo1, compound = TOP)
-            #self.label1.photo = self.photo
             self.label1.pack()
 
-        elif create == 2:
-            image_name1 = self.labelim1.get()
-            label_image1 = Image.open(image_name1)
-            self.label_photo1 = ImageTk.PhotoImage(label_image1)
+            if create >= 2:
             
-            image_name2 = self.labelim2.get()
-            label_image2 = Image.open(image_name2)
-            self.label_photo2 = ImageTk.PhotoImage(label_image2)
+                image_name2 = self.labelim2.get()
+                label_image2 = Image.open(image_name2)
+                self.label_photo2 = ImageTk.PhotoImage(label_image2)
 
-            self.label1 = Label(self.master, textvariable = self.text1, image = self.label_photo1, compound = TOP)
-            #self.label1.photo = self.photo
-            self.label1.pack()
+                self.label2 = Label(self.master, textvariable = self.text2, image = self.label_photo2, compound = TOP)
+                self.label2.pack(side = LEFT)
+                
+                if create >= 3:
 
-            self.label2 = Label(self.master, textvariable = self.text2, image = self.label_photo2, compound = TOP)
-            #self.label2.photo = self.photo
-            self.label2.pack()
+                    image_name3 = self.labelim3.get()
+                    label_image3 = Image.open(image_name3)
+                    self.label_photo3 = ImageTk.PhotoImage(label_image3)
+                    
 
-        elif create == 3:
-            
-            image_name1 = self.labelim1.get()
-            label_image1 = Image.open(image_name1)
-            self.label_photo1 = ImageTk.PhotoImage(label_image1)
-            
-            image_name2 = self.labelim2.get()
-            label_image2 = Image.open(image_name2)
-            self.label_photo2 = ImageTk.PhotoImage(label_image2)
-
-            image_name3 = self.labelim3.get()
-            label_image3 = Image.open(image_name3)
-            self.label_photo3 = ImageTk.PhotoImage(label_image3)
-            
-            self.label1 = Label(self.master, textvariable = self.text1, image = self.label_photo1, compound = TOP)
-            #self.label1.photo = self.photo
-            self.label1.pack()
-
-            self.label2 = Label(self.master, textvariable = self.text2, image = self.label_photo2, compound = TOP)
-            #self.label2.photo = self.photo
-            self.label2.pack(side = LEFT)
-
-            self.label3 = Label(self.master, textvariable = self.text3, image = self.label_photo3, compound = TOP)
-            #self.label3.photo = self.photo
-            self.label3.pack(side = RIGHT)
+                    self.label3 = Label(self.master, textvariable = self.text3, image = self.label_photo3, compound = TOP)
+                    self.label3.pack(side = RIGHT)
 
 
 

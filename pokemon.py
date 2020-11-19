@@ -4,7 +4,7 @@ class Pokemon:
         self.name = name
         self.level = level
         self.type = type
-        self.maximum_health = 10 + (2*level)
+        self.maximum_health = 10 + (3*level)
         self.current_health = self.maximum_health
         self.knocked_out = knocked_out
         self.remaining_xp = level*50
